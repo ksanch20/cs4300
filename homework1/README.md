@@ -1,4 +1,4 @@
-Repository layout:
+# Repository layout:
 
 cs4300/
 └── homework1/
@@ -21,13 +21,13 @@ cs4300/
     ├── task6_read_me.txt
     └── README.md
 
-
+## Requirements
 This project uses Python and requires the following packages:
     -pytest (for testing)
     -numpy (used in Task 7)
 
 
-Running Code
+## Running Code
 
 Navigate into homework1 directory:
 cd cs4300/homework1
@@ -40,7 +40,7 @@ Example:
 python src/task1.py
 
 
-Running Tests
+## Running Tests
 
 Tests are stored in the tests/ folder and are grouped by task.
 
