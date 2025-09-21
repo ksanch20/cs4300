@@ -1,8 +1,7 @@
 # Repository layout:
 
-.
+```.
 └── cs4300
-
     ├── homework1
     │   ├── README.md
     │   ├── env_homework1
@@ -23,7 +22,7 @@
     │       ├── test_task5.py
     │       ├── test_task6.py
     │       └── test_task7.py
-
+```
 
 ## Requirements
 This project uses Python and requires the following packages:
