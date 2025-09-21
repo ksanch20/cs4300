@@ -1,6 +1,8 @@
 # Repository layout:
+
 .
 └── cs4300
+
     ├── homework1
     │   ├── README.md
     │   ├── env_homework1
