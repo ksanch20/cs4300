@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, pytest
 
 #Import task2 functions
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
@@ -19,3 +19,17 @@ def test_string():
 #Test that Float() returns a float 
 def test_float():
     assert isinstance(Float(),float)
+
+#Same tests as above, but parameterized 
+@pytest.mark.parametrize(
+    "func, expected_type",
+    [
+        (Bool, bool),
+        (Int, int),
+        (String, str),
+        (Float, float),
+    ],
+)
+
+def test_return_types(func, expected_type):
+    assert isinstance(func(), expected_type)
