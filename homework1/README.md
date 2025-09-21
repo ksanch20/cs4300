@@ -23,6 +23,7 @@ cs4300/
 
 ## Requirements
 This project uses Python and requires the following packages:
+
     -pytest (for testing)
     -numpy (used in Task 7)
 
@@ -33,6 +34,7 @@ Navigate into homework1 directory:
 cd cs4300/homework1
 
 Each task is implememted in a seperate file under src/. 
+
 Run scripts using:
 python src/<file_name>.py
 
