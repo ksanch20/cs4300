@@ -8,3 +8,5 @@ from task7 import find_mean
 def test_find_mean():
     assert find_mean([1,2,3,4]) == 2.5
     assert find_mean([10,20,60]) == 30
+    assert find_mean([1.5,2.5,3.5]) == 2.5
+    
