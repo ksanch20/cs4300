@@ -1,5 +1,6 @@
 # Repository layout:
-.
+
+```.
 └── cs4300
     ├── homework1
     │   ├── README.md
@@ -21,7 +22,7 @@
     │       ├── test_task5.py
     │       ├── test_task6.py
     │       └── test_task7.py
-
+```
 
 ## Requirements
 This project uses Python and requires the following packages:
@@ -33,12 +34,14 @@ This project uses Python and requires the following packages:
 ## Running Code
 
 Navigate into homework1 directory:
-cd cs4300/homework1
 
-Each task is implememted in a seperate file under src/. 
+    cd cs4300/homework1
+
+Each task is implememted in a seperate file under src/
 
 Run scripts using:
-python src/<file_name>.py
+
+    python src/<file_name>.py
 
 Example:
 python src/task1.py
@@ -49,4 +52,5 @@ python src/task1.py
 Tests are stored in the tests/ folder and are grouped by task.
 
 Run all tests with:
-pytest
+
+    pytest
