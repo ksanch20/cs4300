@@ -19,14 +19,14 @@ class Seat(models.Model):
     booking_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Seat {self.seat_number} - {'Booked' if self.booking_status == True else "Available"}"
+        return f"Seat {self.seat_number} - {'Booked' if self.booking_status == True else 'Available'}"
 
 #Booking model
 class Booking(models.Model):
     movie = models.ForeignKey(Movie, on_delete = models.CASCADE)
     seat = models.ForeignKey(Seat, on_delete = models.CASCADE)
-    user = models.ForeignKey(User, models.CASCADE)
-    booking_date = models.DateTimeField(auto_now = True)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    booking_date = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return f"{self.user.username} booked {self.seat} for {self.movie}"
