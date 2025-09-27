@@ -102,7 +102,7 @@ def booking_history(request):
 
 def register(request):
     if request.method == "POST":
-        form = UserRegistrationForm(request.post)
+        form = UserRegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
