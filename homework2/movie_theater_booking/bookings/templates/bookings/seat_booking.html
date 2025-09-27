@@ -11,6 +11,8 @@
   {% csrf_token %}
   <table>
     <tr>
+      <h2>Seats for {{ movie.title }}</h2>
+      <li>
       {% for seat in seats %}
         <td style="padding:5px;">
           {% if seat.booking_status %}
@@ -26,7 +28,9 @@
         {% if forloop.counter|divisibleby:5 %}
     </tr><tr>
         {% endif %}
+        </tr>
       {% endfor %}
+      </tr>
     </tr>
   </table>
 </form>

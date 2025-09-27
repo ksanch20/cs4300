@@ -16,7 +16,13 @@ from .forms import UserRegistrationForm
 # MovieViewSet for CRUD operations on movies
 class MovieViewSet(viewsets.ModelViewSet):
     serializer_class = MovieSerializer
-    queryset = Movie.objects.all()
+
+    #Get seats by movie
+    def get_queryset(self):
+        movie_id = self.request.query_params.get("movie")
+        if movie_id:
+            return Seat.objects.filter(movie_id=movie_id)
+        return Seat.objects.all()
 
 #SeatViewSet for seat availability and booking 
 class SeatViewSet(viewsets.ModelViewSet):
@@ -49,7 +55,7 @@ class BookingViewSet(viewsets.ModelViewSet):
         movie_id = request.data.get("movie")
 
         # Check seat availability
-        seat = Seat.objects.get(id=seat_id)
+        seat = get_object_or_404(Seat, id=seat_id, movie_id=movie_id)
         if seat.booking_status:
             return Response({"error": "Seat already booked!"}, status=status.HTTP_400_BAD_REQUEST)
 
@@ -76,7 +82,7 @@ def movie_list(request):
 @login_required
 def book_seat(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
-    seats = Seat.objects.all().order_by('seat_number')
+    seats = Seat.objects.filter(movie=movie).order_by('seat_number')
 
 
     if request.method == "POST":
