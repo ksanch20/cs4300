@@ -5,6 +5,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from bookings.models import Movie, Seat, Booking
 from bookings.serializers import MovieSerializer, SeatSerializer, BookingSerializer
+from django.contrib.auth import login
+from .forms import RegisterForm
 
 
 # -------------------------
