@@ -98,3 +98,16 @@ def booking_history(request):
     bookings = Booking.objects.filter(user=request.user)
     return render(request, 'bookings/booking_history.html', {'bookings': bookings})
 
+def register(request):
+    if request.method == "POST":
+        form = UserRegistrationForm(request.post)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'bookings/sign_up.html', {'form': form})
+
+
+
