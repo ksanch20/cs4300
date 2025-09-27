@@ -1,12 +1,16 @@
-from django.urls import path, include 
-from bookings import views 
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register(r'movies', views.MovieViewSet, basename = 'movie')
-router.register(r'seats', views.SeatViewSet, basename = 'seat')
-router.register(r'bookings', views.BookingViewSet, basename = 'booking')
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', include(router.urls)),
+    #Home page
+    path('', views.home, name='home'),
+
+    #Movie list page showing available movies
+    path('movies/', views.movie_list, name='movies-list'),
+
+    #Seat booking page for specific movie
+    path('book-seat/<int:movie_id>/', views.book_seat, name='book_seat'),
+
+    #Booking history page 
+    path('bookings/', views.booking_history, name='bookings-list'),
 ]
