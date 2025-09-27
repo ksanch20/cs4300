@@ -76,10 +76,25 @@ def movie_list(request):
     return render(request, 'bookings/movie_list.html', {'movies': movies})
 
 #View to handle seat booking for specific movie
+@login_required
 def book_seat(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
+    seats = Seat.objects.all().order_by('seat_number')
 
-    return render(request, 'bookings/seat_booking.html', {'movie': movie})
+    if request.method == "POST":
+        seat_id = request.POST.get("seat_id")
+        seat = get_object_or_404(Seat, id=seat_id)
+
+        if seat.is_booked:
+            error = "This seat is already booked."
+            return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats, 'error': error})
+
+        seat.is_booked = True
+        seat.save()
+        Booking.objects.create(movie=movie, seat=seat, user=request.user)
+        return redirect('bookings-list')
+
+    return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats})
 
 #View to display the booking history 
 @login_required
