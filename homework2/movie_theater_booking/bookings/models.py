@@ -17,11 +17,11 @@ class Movie(models.Model):
 class Seat(models.Model):
     seat_number = models.CharField(max_length = 10)
     booking_status = models.BooleanField(default=False)
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="seats", default=1)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name="seats")
 
     class Meta:
         unique_together = ('movie', 'seat_number')
-        
+
     def __str__(self):
         return f"Seat {self.seat_number} - {'Booked' if self.booking_status == True else 'Available'}"
 
