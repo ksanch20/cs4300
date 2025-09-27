@@ -86,11 +86,11 @@ def book_seat(request, movie_id):
         seat_id = request.POST.get("seat_id")
         seat = get_object_or_404(Seat, id=seat_id)
 
-        if seat.is_booked:
+        if seat.booking_status:
             error = "This seat is already booked."
             return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats, 'error': error})
 
-        seat.is_booked = True
+        seat.booking_status = True
         seat.save()
         Booking.objects.create(movie=movie, seat=seat, user=request.user)
         return redirect('bookings-list')
