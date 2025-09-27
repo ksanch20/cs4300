@@ -12,7 +12,7 @@ urlpatterns = [
     path('book-seat/<int:movie_id>/', views.book_seat, name='book_seat'),
 
     #Booking history page 
-    path('bookings/', views.booking_history, name='bookings-list'),
+    path('bookings/', views.booking_history, name='bookings_history'),
 
     path('accounts/', include('django.contrib.auth.urls')),
 
