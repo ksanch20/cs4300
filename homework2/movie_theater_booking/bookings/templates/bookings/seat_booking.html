@@ -13,7 +13,7 @@
     <tr>
       {% for seat in seats %}
         <td style="padding:5px;">
-          {% if seat.is_booked %}
+          {% if seat.booking_status %}
             <button type="button" disabled style="background-color:red; color:white;">
               {{ seat.seat_number }} (Booked)
             </button>
