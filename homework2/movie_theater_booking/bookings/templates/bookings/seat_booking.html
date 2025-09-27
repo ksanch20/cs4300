@@ -15,7 +15,7 @@
         <td style="padding:5px;">
           {% if seat.booking_status %}
             <button type="button" disabled style="background-color:red; color:white;">
-              {{ seat.seat_number }} (Booked)
+              {{ seat.seat_number }} 
             </button>
           {% else %}
             <button type="submit" name="seat_id" value="{{ seat.id }}" style="background-color:green; color:white;">
