@@ -80,6 +80,7 @@ def movie_list(request):
 def book_seat(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
     seats = Seat.objects.all().order_by('seat_number')
+    print("SEATS:", seats)  # <-- debug line
 
     if request.method == "POST":
         seat_id = request.POST.get("seat_id")
