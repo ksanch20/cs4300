@@ -171,12 +171,6 @@ def movie_list(request):
     movies = Movie.objects.all()
     return render(request, 'bookings/movie_list.html', {'movies': movies})
 
-#View to handle seat booking for specific movie
-def book_seat(request, movie_id):
-    movie = get_object_or_404(Movie, id=movie_id)
-
-    return render(request, 'bookings/seat_booking.html', {'movie': movie})
-
 #View to display the booking history 
 @login_required
 def booking_history(request):
