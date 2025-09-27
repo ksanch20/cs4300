@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -13,4 +13,8 @@ urlpatterns = [
 
     #Booking history page 
     path('bookings/', views.booking_history, name='bookings-list'),
+
+    path('accounts/', include('django.contrib.auth.urls')),
+
+
 ]
