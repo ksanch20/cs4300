@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cue=+wh6wa*$o96#gg$f2m*v=#(s0kab6rebio&x)61(oijpu9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [movie-theater-booking.onrender.com]
 
 
 # Application definition
