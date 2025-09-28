@@ -32,6 +32,16 @@ class Booking(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     booking_date = models.DateTimeField(auto_now_add = True)
 
+    class Meta:
+        unique_together = ('seat',)
+
+    def save(self, *args, **kwargs):
+        if self.seat.booking_status:
+            raise Exception("Seat is already booked!")
+        super().save(*args, **kwargs)
+        self.seat.booking_status = True
+        self.seat.save()
+
     def __str__(self):
         return f"{self.user.username} booked {self.seat} for {self.movie}"
 

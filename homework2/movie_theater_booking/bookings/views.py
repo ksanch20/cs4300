@@ -54,17 +54,13 @@ class BookingViewSet(viewsets.ModelViewSet):
         seat_id = request.data.get("seat")
         movie_id = request.data.get("movie")
 
-        # Check seat availability
         seat = get_object_or_404(Seat, id=seat_id, movie_id=movie_id)
-        if seat.booking_status:
-            return Response({"error": "Seat already booked!"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Book it
-        seat.booking_status = True
-        seat.save()
+        try:
+            booking = Booking.objects.create(movie_id=movie_id, seat=seat, user=request.user)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Create booking with logged-in user
-        booking = Booking.objects.create(movie_id=movie_id, seat=seat, user=request.user)
         serializer = self.get_serializer(booking)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -93,8 +89,6 @@ def book_seat(request, movie_id):
             error = "This seat is already booked."
             return render(request, 'bookings/seat_booking.html', {'movie': movie, 'seats': seats, 'error': error})
 
-        seat.booking_status = True
-        seat.save()
         Booking.objects.create(movie=movie, seat=seat, user=request.user)
         return redirect('booking_history')
 
