@@ -1,37 +1,40 @@
 {% extends "base.html" %}
+{% block title %}Book Seats{% endblock %}
 
 {% block content %}
-<h2>Booking for {{ movie.title }}</h2>
+<h2 class="mb-4 text-center">Book Seats for {{ movie.title }}</h2>
+
 
 {% if error %}
-<p style="color:red;">{{ error }}</p>
+<div class="alert alert-danger">{{ error }}</div>
 {% endif %}
 
-<form method="post">
-  {% csrf_token %}
-  <table>
-    <tr>
-      <h2>Seats for {{ movie.title }}</h2>
-      <li>
-      {% for seat in seats %}
-        <td style="padding:5px;">
-          {% if seat.booking_status %}
-            <button type="button" disabled style="background-color:red; color:white;">
-              {{ seat.seat_number }} 
-            </button>
-          {% else %}
-            <button type="submit" name="seat_id" value="{{ seat.id }}" style="background-color:green; color:white;">
-              {{ seat.seat_number }}
-            </button>
-          {% endif %}
-        </td>
-        {% if forloop.counter|divisibleby:5 %}
-    </tr><tr>
+<!-- Screen Indicator -->
+<div class="text-center mb-4">
+    <div class="bg-secondary text-white py-2 rounded" style="width: 80%; margin: 0 auto;">
+        SCREEN
+    </div>
+</div>
+
+<!-- Seats Grid -->
+<div class="row row-cols-2 row-cols-md-4 g-3">
+  {% for seat in seats %}
+  <div class="col">
+    <div class="card text-center {% if seat.booking_status %}bg-danger text-white{% else %}bg-light{% endif %}">
+      <div class="card-body">
+        <h5 class="card-title">{{ seat.seat_number }}</h5>
+        {% if not seat.booking_status %}
+        <form method="post">
+          {% csrf_token %}
+          <input type="hidden" name="seat_id" value="{{ seat.id }}">
+          <button type="submit" class="btn btn-primary btn-sm">Book</button>
+        </form>
+        {% else %}
+        <span class="badge bg-dark">Booked</span>
         {% endif %}
-        </tr>
-      {% endfor %}
-      </tr>
-    </tr>
-  </table>
-</form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 {% endblock %}

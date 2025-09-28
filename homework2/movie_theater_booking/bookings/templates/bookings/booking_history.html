@@ -1,16 +1,24 @@
 {% extends "base.html" %}
-
 {% block title %}My Bookings{% endblock %}
 
 {% block content %}
-<h2>My Bookings</h2>
-<ul class="list-group">
-    {% for booking in bookings %}
-        <li class="list-group-item">
-            {{ booking.movie.title }} - Seat {{ booking.seat.seat_number }} = Booked on {{ booking.booking_date }}
-        </li>
-    {% empty %}
-        <li class="list-group-item">You have no bookings.</li>
-    {% endfor %}
-</ul>
+<h2 class="mb-4 text-center">My Bookings</h2>
+
+{% if bookings %}
+<div class="row row-cols-1 row-cols-md-2 g-3">
+  {% for booking in bookings %}
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ booking.movie.title }}</h5>
+        <p class="card-text">Seat: {{ booking.seat.seat_number }}</p>
+        <p class="card-text"><small class="text-muted">Booked on {{ booking.booking_date|date:"F j, Y, g:i a" }}</small></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="alert alert-info">You have no bookings.</div>
+{% endif %}
 {% endblock %}
