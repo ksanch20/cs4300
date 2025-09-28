@@ -30,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["movie-theater-bookinggunicorn-movie.onrender.com"]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://movie-theater-bookinggunicorn-movie.onrender.com"
+]
 
 # Application definition
 
