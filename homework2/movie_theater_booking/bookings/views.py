@@ -75,11 +75,15 @@ def movie_list(request):
     return render(request, 'bookings/movie_list.html', {'movies': movies})
 
 #View to handle seat booking for specific movie
-@login_required
 def book_seat(request, movie_id):
     movie = get_object_or_404(Movie, id=movie_id)
     seats = Seat.objects.filter(movie=movie).order_by('seat_number')
 
+    # redirect to login page if user is not logged in
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            login_url = reverse("login")  
+            return redirect(f"{login_url}?next={request.path}")
 
     if request.method == "POST":
         seat_id = request.POST.get("seat_id")
