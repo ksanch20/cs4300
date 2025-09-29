@@ -7,6 +7,7 @@ from bookings.models import Movie, Seat, Booking
 from bookings.serializers import MovieSerializer, SeatSerializer, BookingSerializer
 from django.contrib.auth import login
 from .forms import UserRegistrationForm
+from django.urls import reverse
 
 
 # -------------------------
