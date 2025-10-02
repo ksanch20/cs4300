@@ -53,10 +53,10 @@ Run development server:
 
 ## AI Usage
 Used chatGPT to:
--Generate basic HTML templates
--Help set up user profiles 
--Provide guidance on Django setup and configurations 
--Suggest README structure and content
+- Generate basic HTML templates
+- Help set up user profiles 
+-P rovide guidance on Django setup and configurations 
+- Suggest README structure and content
 
 All AI-generated content was reviewed, modified, and integrated by developer
 to ensure correctness and project-specific relevance. 
