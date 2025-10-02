@@ -22,13 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 import os
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-secret-key-please-change",)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["movie-theater-bookinggunicorn-movie.onrender.com"]
+ALLOWED_HOSTS = ["movie-theater-bookinggunicorn-movie.onrender.com",
+ "localhost", 
+ "127.0.0.1", ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://movie-theater-bookinggunicorn-movie.onrender.com"
