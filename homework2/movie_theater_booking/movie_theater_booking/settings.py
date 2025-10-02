@@ -33,7 +33,9 @@ ALLOWED_HOSTS = ["movie-theater-bookinggunicorn-movie.onrender.com",
  "127.0.0.1", ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://movie-theater-bookinggunicorn-movie.onrender.com"
+    "https://movie-theater-bookinggunicorn-movie.onrender.com",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 # Application definition
