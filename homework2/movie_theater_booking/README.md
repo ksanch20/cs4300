@@ -1,4 +1,32 @@
 # Repository layout:
+movie_theater_booking/
+├── db.sqlite3
+├── manage.py
+├── Procfile
+├── requirements.txt
+├── README.md
+├── movie_theater_booking/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── bookings/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── serializers.py
+│   ├── urls.py
+│   ├── api_urls.py
+│   ├── views.py
+│   ├── migrations/
+│   └── templates/
+└── templates/
+    ├── base.html
+    └── registration/
+
 
 
 ## Movie Theater Booking
