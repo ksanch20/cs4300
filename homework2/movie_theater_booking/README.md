@@ -1,0 +1,54 @@
+# Repository layout:
+
+
+## Movie Theater Booking
+A Django web application for booking movie tickets online. Users can browse available movies, view seat layouts, and securely book seats with account integration
+Access deployed app here: https://movie-theater-bookinggunicorn-movie.onrender.com/ 
+
+## Features
+User authentication (sign up, login, logout)
+
+Movie listings with descriptions
+
+Interactive seat selection per movie
+
+Prevents double booking of seats
+
+Booking history per user
+
+CSRF-protected forms
+
+Deployed on Render
+
+
+## Setup 
+
+Clone the repository:
+
+    git clone git@github.com:ksanch20/cs4300.git
+    cd homework2
+
+Create and activate a virtual environment:
+
+    python3 -m venv myenv -- system - site - packages
+    source myenv / bin / activate
+    pip install django djangorestframework
+
+
+Install dependencies:
+
+    pip install -r requirements.txt
+
+Run migrations:
+
+    cd movie_theater_booking
+    python manage.py migrate
+
+Run development server:
+
+    python manage.py runserver
+
+
+## Render Deployment 
+
+
