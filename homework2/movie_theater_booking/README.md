@@ -55,7 +55,7 @@ Run development server:
 Used chatGPT to:
 - Generate basic HTML templates
 - Help set up user profiles 
--P rovide guidance on Django setup and configurations 
+- Provide guidance on Django setup and configurations for deployment
 - Suggest README structure and content
 
 All AI-generated content was reviewed, modified, and integrated by developer
