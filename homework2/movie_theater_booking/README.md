@@ -1,4 +1,5 @@
 # Repository layout:
+```.
 movie_theater_booking/
 ├── db.sqlite3
 ├── manage.py
@@ -26,6 +27,7 @@ movie_theater_booking/
 └── templates/
     ├── base.html
     └── registration/
+'''
 
 
 
