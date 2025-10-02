@@ -99,7 +99,8 @@ Create Environment Variable: DJANGO_SECRET_KEY
 ## AI Usage
 Used chatGPT to:
 - Generate basic HTML templates
-- Help set up user profiles 
+- Help set up user profiles
+- Help with testing
 - Provide guidance on Django setup and configurations for deployment
 - Suggest README structure and content
 
