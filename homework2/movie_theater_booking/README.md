@@ -27,7 +27,7 @@ movie_theater_booking/
 └── templates/
     ├── base.html
     └── registration/
-'''
+
 
 
 
