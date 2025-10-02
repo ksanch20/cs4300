@@ -51,6 +51,14 @@ Run development server:
 
 ## Render Deployment 
 
+Create New Web Service Named: movie-theater-booking
+Set Root Directory: homework2/movie_theater_booking
+Build Command: 
+    pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+Start Command: 
+    gunicorn movie_theater_booking.wsgi
+Create Environment Variable: DJANGO_SECRET_KEY 
+
 ## AI Usage
 Used chatGPT to:
 - Generate basic HTML templates
