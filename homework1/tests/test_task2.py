@@ -20,7 +20,7 @@ def test_string():
 def test_float():
     assert isinstance(Float(),float)
 
-#Same tests as above, but parameterized 
+#Same tests as above, but parametrized 
 @pytest.mark.parametrize(
     "func, expected_type",
     [

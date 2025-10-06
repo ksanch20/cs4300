@@ -8,7 +8,7 @@ from task6 import count_words_in_file
 def test_count_words_in_file():
     assert count_words_in_file("/home/student/cs4300/homework1/task6_read_me.txt") == 127
 
-#Same test as above but parameterized 
+#Same test as above but parametrized 
 
 @pytest.mark.parametrize(
     "filepath, expected_count",
